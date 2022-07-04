@@ -1,7 +1,9 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
-export default function AskBoss() {
+export default function FormikApp() {
+  const form = useRef();
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -13,16 +15,30 @@ export default function AskBoss() {
       arrivalTime: "",
       delayExcuse: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
-      formik.resetForm();
+    onSubmit: () => {
+      emailjs
+        .sendForm(
+          "service_w32toxr",
+          "template_k1xkw0l",
+          form.current,
+          "Up_CldYfajT0iwiYB"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
     },
   });
 
   return (
     <div>
       <form
-        onSubmit={formik.handleSubmit}
+        ref={form}
+        onSubmit={(e) => formik.handleSubmit(e)}
         style={{
           justifyContent: "center",
           alignItems: "center",

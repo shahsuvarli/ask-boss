@@ -1,12 +1,10 @@
 import React from "react";
-// import Formik from "./Formik";
-import AskBoss2 from "./Formik2";
-// import Reducer from "./Reducer";
+import FormikApp from "./FormikApp";
 
 export default function Hooks() {
   return (
     <div>
-      <AskBoss2 />
+      <FormikApp />
     </div>
   );
 }
