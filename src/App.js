@@ -1,12 +1,9 @@
-import "./App.css";
-import AskBoss from "./AskBoss";
+import { Component } from "react";
+import Hooks from "./Hooks";
 
-function App() {
-  return (
-    <div className="App">
-      <AskBoss />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return <Hooks />;
+  }
 }
-
 export default App;
