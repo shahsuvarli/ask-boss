@@ -18,10 +18,10 @@ export default function FormikApp() {
     onSubmit: () => {
       emailjs
         .sendForm(
-          "service_w32toxr",
-          "template_k1xkw0l",
+          "SERVICE_ID",
+          "TEMPLATE_ID",
           form.current,
-          "Up_CldYfajT0iwiYB"
+          "USER_ID"
         )
         .then(
           (result) => {
